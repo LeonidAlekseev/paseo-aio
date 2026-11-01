@@ -76,7 +76,9 @@ claude   # новая сессия
 3. Добавляет в `~/.claude/settings.json` хуки RTK и CodeGraph, deny-правила для опасных git-команд и `PONYTAIL_DEFAULT_MODE=full`. Старый файл сохраняется в `~/.claude/backups/`.
 4. Вписывает блок правил между маркерами `DEV_STACK` в `~/.claude/CLAUDE.md`. Остальное содержимое файла не трогает.
 5. Добавляет `.codegraph/` в глобальный gitignore.
-6. Добавляет профили в `~/.paseo/config.json` и заменяет профили с теми же `id`. Бэкап сохраняется рядом с файлом.
+6. Копирует встроенные скиллы Paseo (`paseo`, `paseo-advisor`, `paseo-committee`, `paseo-handoff`, `paseo-help`, `paseo-plugin`), но только те, которых ещё нет. Свои скиллы Paseo обновляет сам.
+7. Настраивает Paseo в `~/.paseo/config.json` (бэкап сохраняется рядом): MCP внутри агентов включён, browser tools выключены, автоархивация после merge включена, Antigravity включён, OpenCode, Pi и Muse выключены, диктовка через локальный whisper-turbo, голосовой режим выключен. Профили с теми же `id` заменяются. Адрес, CORS, relay и ключи не трогаются.
+8. Ставит плагины Paseo из `paseo/plugins.txt`: better-paseo, prompt-manager, resources, shell-yeah, usage-auto-resume.
 
 Если нужно только обновить конфиги без загрузок: `SKIP_INSTALL=1 ./install.sh`.
 
@@ -91,7 +93,28 @@ claude/hooks/codegraph-autoindex.sh  SessionStart: индекс CodeGraph в к�
 claude/skills/orchestrate/         точка входа: просьба словами → поток Pocock
 claude/skills/pocock-paseo/        роли Pocock → агенты Paseo по профилям
 paseo/agent-profiles.json          профили исполнителей
+paseo/settings.json                переносимые настройки Paseo (без адресов и ключей)
+paseo/plugins.txt                  плагины Paseo (id в реестре plugins.paseo.sh)
+paseo/skills/                      встроенные скиллы Paseo (снимок)
 ```
+
+## Проверенные версии
+
+Стек проверен 2026-11-01 только на этих версиях:
+
+| Компонент | Версия |
+| :-- | :-- |
+| Claude Code | 2.1.316 |
+| Paseo | 0.14.0 |
+| Node | v26.13.0 |
+| RTK | 1.1.0 |
+| CodeGraph | 1.6.2 |
+| @playwright/cli | 0.1.23 |
+| Плагин ponytail | 5.3.3 |
+| Плагин mattpocock-skills | 1.3.1 |
+| Плагины Paseo | better-paseo `f7dcded`, prompt-manager `74d00ca`, resources `e3ecb0b`, shell-yeah 1.3.1, usage-auto-resume `b115098` |
+
+`install.sh` ставит **последние** версии. На более новых стек не проверялся. Установщик показывает предупреждение в начале и список установленных версий в конце. Если версии отличаются, проверьте, что `orchestrate` находит скиллы Pocock по именам и что хуки срабатывают.
 
 ## Ограничения
 

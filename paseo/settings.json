@@ -1,0 +1,44 @@
+{
+  "pluginsEnabled": true,
+  "daemon": {
+    "mcp": {
+      "injectIntoAgents": true
+    },
+    "browserTools": {
+      "enabled": false
+    },
+    "autoArchiveAfterMerge": true
+  },
+  "agents": {
+    "providers": {
+      "muse": {
+        "enabled": false
+      },
+      "antigravity": {
+        "enabled": true
+      },
+      "opencode": {
+        "enabled": false
+      },
+      "pi": {
+        "enabled": false
+      }
+    }
+  },
+  "features": {
+    "dictation": {
+      "enabled": true,
+      "stt": {
+        "provider": "local",
+        "model": "whisper-turbo"
+      }
+    },
+    "voiceMode": {
+      "enabled": false,
+      "stt": {
+        "provider": "local",
+        "model": "whisper-turbo"
+      }
+    }
+  }
+}
