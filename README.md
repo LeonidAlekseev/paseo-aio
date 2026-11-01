@@ -1,4 +1,4 @@
-# Agent Dev Stack
+# Paseo AIO
 
 **🇬🇧 English** | [🇷🇺 Русский](README.ru.md)
 
@@ -87,8 +87,8 @@ Not used, because they overlap with the tools above: Superpowers, OpenSpec, GSD,
 ### Install
 
 ```sh
-git clone git@github.com:LeonidAlekseev/agent-dev-stack.git
-cd agent-dev-stack
+git clone git@github.com:LeonidAlekseev/paseo-aio.git
+cd paseo-aio
 ./install.sh
 paseo daemon restart
 claude                      # start a new session so hooks and MCP load
@@ -335,3 +335,6 @@ paseo/skills/                        snapshot of Paseo's built-in skills
 ## License
 
 [MIT](LICENSE).
+
+`paseo/skills/` is a snapshot of [Paseo](https://github.com/getpaseo/paseo)'s built-in skills. They are not covered by the
+MIT license: they stay under Paseo's Apache License 2.0, see [paseo/skills/LICENSE](paseo/skills/LICENSE).

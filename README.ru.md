@@ -1,4 +1,4 @@
-# Agent Dev Stack
+# Paseo AIO
 
 [🇬🇧 English](README.md) | **🇷🇺 Русский**
 
@@ -86,8 +86,8 @@ Ponytail, навигацией по коду — CodeGraph, сжатием вы�
 ### Установка
 
 ```sh
-git clone git@github.com:LeonidAlekseev/agent-dev-stack.git
-cd agent-dev-stack
+git clone git@github.com:LeonidAlekseev/paseo-aio.git
+cd paseo-aio
 ./install.sh
 paseo daemon restart
 claude                      # новая сессия, чтобы подхватились хуки и MCP
@@ -335,3 +335,6 @@ paseo/skills/                        снимок встроенных скил�
 ## Лицензия
 
 [MIT](LICENSE).
+
+`paseo/skills/` — снимок встроенных скиллов [Paseo](https://github.com/getpaseo/paseo). Лицензия MIT на них не
+распространяется: они остаются под Apache License 2.0 от Paseo, см. [paseo/skills/LICENSE](paseo/skills/LICENSE).
