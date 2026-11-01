@@ -1,0 +1,109 @@
+[
+  {
+    "id": "orchestrator",
+    "name": "Orchestrator",
+    "provider": "claude",
+    "model": "claude-opus-5-5",
+    "modeId": "auto",
+    "thinkingOptionId": "medium",
+    "notes": "Оркестратор разработки (скилл orchestrate). Планирует через Pocock, запускает исполнителей через Paseo. Не исполнитель."
+  },
+  {
+    "id": "implementer-heavy",
+    "name": "Implementer · heavy",
+    "provider": "claude",
+    "model": "claude-opus-5-5",
+    "modeId": "auto",
+    "thinkingOptionId": "medium",
+    "notes": "Тикет ВЫСОКОЙ сложности: рефакторинг, обширные изменения, миграции, публичный API, кросс-модульная логика, архитектура."
+  },
+  {
+    "id": "implementer-medium",
+    "name": "Implementer · medium",
+    "provider": "claude",
+    "model": "claude-sonnet-5-5",
+    "modeId": "auto",
+    "thinkingOptionId": "medium",
+    "notes": "Тикет СРЕДНЕЙ сложности: типовая фича, багфикс, несколько модулей, UI-код, фикс по ревью."
+  },
+  {
+    "id": "implementer-light",
+    "name": "Implementer · light",
+    "provider": "claude",
+    "model": "claude-haiku-5-5",
+    "modeId": "auto",
+    "thinkingOptionId": "medium",
+    "notes": "Тикет ЛЁГКИЙ: до ~3 файлов, локальная правка без изменения API."
+  },
+  {
+    "id": "implementer-trivial",
+    "name": "Implementer · trivial",
+    "provider": "claude",
+    "model": "claude-haiku-5-5",
+    "modeId": "auto",
+    "thinkingOptionId": "low",
+    "notes": "Тривиально: переименования, бойлерплейт, простое переписывание текста/доков."
+  },
+  {
+    "id": "merger",
+    "name": "Merger",
+    "provider": "claude",
+    "model": "claude-haiku-5-5",
+    "modeId": "auto",
+    "thinkingOptionId": "medium",
+    "notes": "Роль merger из implement-spec: влить ветку тикета в integration-ветку. При нетривиальном конфликте — эскалировать, оркестратор возьмёт implementer-medium."
+  },
+  {
+    "id": "reviewer",
+    "name": "Reviewer",
+    "provider": "claude",
+    "model": "claude-sonnet-5-5",
+    "modeId": "auto",
+    "thinkingOptionId": "medium",
+    "notes": "Ревьюер для code-review (оси Standards и Spec). Только чтение, отчёт до 400 слов."
+  },
+  {
+    "id": "code-research",
+    "name": "Research · code",
+    "provider": "claude",
+    "model": "claude-sonnet-5-5",
+    "modeId": "auto",
+    "thinkingOptionId": "medium",
+    "notes": "Исследование кода репо (как устроено X, exploration-субагент implement-spec). Через CodeGraph. Только чтение, отчёт в Markdown-файл."
+  },
+  {
+    "id": "web-research",
+    "name": "Research · web",
+    "provider": "antigravity",
+    "model": "gemini-3.8-flash-high",
+    "modeId": "full-access",
+    "notes": "Исследование, где нужен интернет: документация, API, сбор данных, вебсерфинг. Только чтение, код не трогать, результат — Markdown-файл с источниками. Отдельный worktree."
+  },
+  {
+    "id": "images",
+    "name": "Images",
+    "provider": "codex",
+    "model": "gpt-6-luna",
+    "modeId": "auto",
+    "thinkingOptionId": "medium",
+    "notes": "Генерация картинок и UI-ассетов (PNG на прозрачном фоне для сайта). Единственная задача GPT кроме второго мнения."
+  },
+  {
+    "id": "advisor",
+    "name": "Advisor · architecture",
+    "provider": "codex",
+    "model": "gpt-6-luna",
+    "modeId": "auto",
+    "thinkingOptionId": "medium",
+    "notes": "Второе мнение по архитектуре, когда нужно (другое семейство моделей). Только чтение, код не менять."
+  },
+  {
+    "id": "arbiter",
+    "name": "Arbiter",
+    "provider": "claude",
+    "model": "claude-fable-5-1",
+    "modeId": "plan",
+    "thinkingOptionId": "medium",
+    "notes": "Спорные замечания ревью, тяжёлые и неразрешённые споры. Только чтение. Ответ: решение, обоснование, риски."
+  }
+]
