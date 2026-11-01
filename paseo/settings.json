@@ -24,21 +24,5 @@
         "enabled": false
       }
     }
-  },
-  "features": {
-    "dictation": {
-      "enabled": true,
-      "stt": {
-        "provider": "local",
-        "model": "whisper-turbo"
-      }
-    },
-    "voiceMode": {
-      "enabled": false,
-      "stt": {
-        "provider": "local",
-        "model": "whisper-turbo"
-      }
-    }
   }
 }
