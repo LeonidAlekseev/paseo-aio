@@ -6,6 +6,7 @@
 [![Paseo](https://img.shields.io/badge/Paseo-0.14.0-black)](https://paseo.sh)
 [![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)](#tested-versions)
 [![Shell](https://img.shields.io/badge/install-bash-4EAA25?logo=gnubash&logoColor=white)](install.sh)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 A one-command setup for orchestrated development in Claude Code. Matt Pocock's skills run the engineering process,
 Paseo starts executor agents from model profiles, and an Opus 5.5 orchestrator plans the work, routes tickets and
@@ -33,6 +34,7 @@ merges the result into `dev`.
 - [FAQ](#faq)
 - [Layout](#layout)
 - [Acknowledgments](#acknowledgments)
+- [License](#license)
 
 ## Overview
 
@@ -329,3 +331,7 @@ paseo/skills/                        snapshot of Paseo's built-in skills
   [prompt-manager](https://github.com/yannelli/paseo-prompt-manager),
   [resources](https://github.com/ZedObaia/paseo-plugins),
   [shell-yeah](https://plugins.paseo.sh), [usage-auto-resume](https://github.com/babo-jeonguk/paseo-usage-auto-resume).
+
+## License
+
+[MIT](LICENSE).

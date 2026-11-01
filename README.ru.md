@@ -6,6 +6,7 @@
 [![Paseo](https://img.shields.io/badge/Paseo-0.14.0-black)](https://paseo.sh)
 [![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)](#проверенные-версии)
 [![Shell](https://img.shields.io/badge/install-bash-4EAA25?logo=gnubash&logoColor=white)](install.sh)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 Оркестрированная разработка в Claude Code, которая ставится одной командой. Процесс ведут скиллы Matt Pocock. Paseo
 запускает исполнителей по профилям моделей. Оркестратор на Opus 5.5 планирует работу, раздаёт тикеты и вливает
@@ -33,6 +34,7 @@
 - [Частые вопросы](#частые-вопросы)
 - [Структура](#структура)
 - [Благодарности](#благодарности)
+- [Лицензия](#лицензия)
 
 ## Обзор
 
@@ -329,3 +331,7 @@ paseo/skills/                        снимок встроенных скил�
   [prompt-manager](https://github.com/yannelli/paseo-prompt-manager),
   [resources](https://github.com/ZedObaia/paseo-plugins),
   [shell-yeah](https://plugins.paseo.sh), [usage-auto-resume](https://github.com/babo-jeonguk/paseo-usage-auto-resume).
+
+## Лицензия
+
+[MIT](LICENSE).
