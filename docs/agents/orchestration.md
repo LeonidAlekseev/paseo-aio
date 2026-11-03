@@ -16,25 +16,12 @@ children; do not substitute an untracked process.
 Read every selected profile's notes. The repository uses the installed
 `codex-*` roles; model, reasoning and permission mode come from those profiles.
 
-## Current review boundary
-
-The Codex port is being reviewed as uncommitted changes on `codex-port`.
-The user has withheld permission to commit and push until checking the result.
-Setting up orchestration does not lift that restriction. Work on the local
-checkout and return diffs/check results until the user changes this instruction.
-
-New worktrees contain committed files from their base revision, not this dirty
-checkout. Do not assign a ticket requiring the Codex port to a fresh worktree
-and assume those files exist. A read-only review can inspect the current local
-workspace after writers are idle; implementation delegation needs an explicitly
-agreed snapshot/commit first.
-
 ## Branches and integration
 
-The remote default is `origin/main`; there is no `dev` branch. Keep the current
-`codex-port` work intact. Before the first implementation batch, agree whether
-integration targets the port branch, main, or a new dev branch. Setup itself
-creates no integration branch, PR, merge or release.
+Upstream contributions target `main`. Use the integration branch agreed for the
+task and preserve existing work. Create ticket worktrees from a committed base
+that contains their dependencies; uncommitted files in another checkout are
+not inherited. Follow the user's authorization for commits and publication.
 
 Once the base and scope are approved, use Paseo-managed worktrees and the
 adapter's ticket dependency rules. Serialize integration merges and changes to

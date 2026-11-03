@@ -6,10 +6,19 @@ description: Coordinate an approved development task through Codex agents in Pas
 # Codex orchestration through Paseo
 
 Read `codex-pocock-paseo` before delegating. Use the installed Matt Pocock skill
-catalog, including plugin-qualified names. Read the selected SKILL.md and the
-references it calls for. Do not use paths under ~/.claude or infer that every
-upstream slash command exists in Codex. If a required skill is missing, name it
-and its installation step; do not claim to have run it.
+catalog, including plugin-qualified names. Some workflow skills are hidden from
+the live catalog by invocation metadata. Before declaring one missing, locate
+the active plugin root from a catalog entry's installed SKILL.md path (for
+example, code-review), or the Codex plugin registry if no sibling is listed.
+Search that root's `skills/` tree for the required skill's `SKILL.md`; use the
+active installation, without guessing a version or using Claude paths.
+
+Read the selected SKILL.md and its required references. Upstream instructions
+to invoke the Skill tool mean reading the installed SKILL.md under Codex;
+resolve relative references against that skill's directory and follow its
+workflow within the approved scope. If neither catalog nor filesystem discovery
+finds it, name the missing skill and its installation step; do not claim to
+have run it.
 
 ## Choose the workflow
 
