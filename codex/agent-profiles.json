@@ -1,0 +1,110 @@
+[
+  {
+    "id": "codex-orchestrator",
+    "name": "Codex · Orchestrator",
+    "provider": "codex-orchestrator",
+    "model": "gpt-6-astra",
+    "modeId": "auto-review",
+    "thinkingOptionId": "high",
+    "notes": "Use codex-orchestrate to plan approved work, delegate through Paseo, coordinate review and integration."
+  },
+  {
+    "id": "codex-implementer-heavy",
+    "name": "Codex · Implementer · heavy",
+    "provider": "codex-implementer-heavy",
+    "model": "gpt-6-astra",
+    "modeId": "auto-review",
+    "thinkingOptionId": "high",
+    "notes": "High-complexity ticket: architecture, migrations, public APIs, cross-module refactoring. No further delegation."
+  },
+  {
+    "id": "codex-implementer-medium",
+    "name": "Codex · Implementer · medium",
+    "provider": "codex-implementer-medium",
+    "model": "gpt-6.1-sol",
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium",
+    "notes": "Typical feature, bug fix, UI code or scoped fixes after review. No further delegation."
+  },
+  {
+    "id": "codex-implementer-light",
+    "name": "Codex · Implementer · light",
+    "provider": "codex-implementer-light",
+    "model": "gpt-6.1-sol",
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium",
+    "notes": "Local change in a few files with no public API change. No further delegation."
+  },
+  {
+    "id": "codex-implementer-trivial",
+    "name": "Codex · Implementer · trivial",
+    "provider": "codex-implementer-trivial",
+    "model": "gpt-6.1-sol",
+    "modeId": "auto-review",
+    "thinkingOptionId": "low",
+    "notes": "Mechanical renames, boilerplate or small documentation updates. No further delegation."
+  },
+  {
+    "id": "codex-merger",
+    "name": "Codex · Merger",
+    "provider": "codex-merger",
+    "model": "gpt-6.1-sol",
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium",
+    "notes": "Sequential ticket merge in the integration workspace. Escalate semantic conflicts; never discard changes."
+  },
+  {
+    "id": "codex-reviewer",
+    "name": "Codex · Reviewer",
+    "provider": "codex-reviewer",
+    "model": "gpt-6-astra",
+    "modeId": "auto-review",
+    "thinkingOptionId": "high",
+    "notes": "Standards or Spec review. Read-only brief: report evidence and do not edit files. Role instructions do not enforce an OS sandbox."
+  },
+  {
+    "id": "codex-code-research",
+    "name": "Codex · Research · code",
+    "provider": "codex-code-research",
+    "model": "gpt-6.1-sol",
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium",
+    "notes": "Investigate this codebase. Read-only brief; use CodeGraph when indexed, otherwise rg/read. Return evidence."
+  },
+  {
+    "id": "codex-web-research",
+    "name": "Codex · Research · web",
+    "provider": "codex-web-research",
+    "model": "gpt-6.1-sol",
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium",
+    "notes": "Research documentation or APIs with actual web tools and citations. Do not edit repository code. Report unavailable web tools."
+  },
+  {
+    "id": "codex-images",
+    "name": "Codex · Images",
+    "provider": "codex-images",
+    "model": "gpt-6.1-sol",
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium",
+    "notes": "Generate requested image assets only if an image generation tool is available. A Codex model alone does not provide one."
+  },
+  {
+    "id": "codex-advisor",
+    "name": "Codex · Advisor",
+    "provider": "codex-advisor",
+    "model": "gpt-6-astra",
+    "modeId": "auto-review",
+    "thinkingOptionId": "high",
+    "notes": "Independent architecture opinion, read-only. Uses the same model family by default; do not call this cross-family review."
+  },
+  {
+    "id": "codex-arbiter",
+    "name": "Codex · Arbiter",
+    "provider": "codex-arbiter",
+    "model": "gpt-6-astra",
+    "modeId": "auto-review",
+    "thinkingOptionId": "high",
+    "notes": "Resolve disputed review findings using requirements and evidence. Read-only; escalate unresolved product decisions."
+  }
+]

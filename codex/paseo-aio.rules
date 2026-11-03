@@ -1,0 +1,16 @@
+# Defense in depth for command requests checked by Codex's rules engine.
+# These prefix rules are NOT a universal shell parser or a full-access sandbox.
+# Git aliases, reordered flags, other remotes and wrappers can evade prefixes.
+# Keep server-side branch protection for main/dev.
+prefix_rule(pattern = ["git", "reset", "--hard"], decision = "forbidden", justification = "Preserve existing changes; inspect the diff and use a scoped edit.", match = ["git reset --hard HEAD"])
+prefix_rule(pattern = ["git", "clean", ["-f", "-fd", "-df", "-fdx", "-xdf", "-d"]], decision = "forbidden", justification = "Inspect untracked files and remove only explicitly approved paths.")
+prefix_rule(pattern = ["git", "push", ["--force", "--force-with-lease", "-f"]], decision = "forbidden", justification = "Use a normal push and merge commits.")
+prefix_rule(pattern = ["git", "push", "origin", ["--force", "--force-with-lease", "-f", "main", "HEAD:main"]], decision = "forbidden", justification = "Use a reviewed PR to the target branch.")
+prefix_rule(pattern = ["git", "checkout", "--", "."], decision = "forbidden", justification = "Preserve unrelated working changes.")
+prefix_rule(pattern = ["git", "restore", "."], decision = "forbidden", justification = "Restore only explicitly approved paths.")
+prefix_rule(pattern = ["git", "branch", "-D", ["main", "dev"]], decision = "forbidden", justification = "Keep integration and release branches.")
+prefix_rule(pattern = ["gh", "repo", "delete"], decision = "forbidden", justification = "Repository deletion is outside development orchestration.")
+prefix_rule(pattern = ["rtk", "git", "reset", "--hard"], decision = "forbidden", justification = "Preserve existing changes.")
+prefix_rule(pattern = ["rtk", "git", "clean", ["-f", "-fd", "-df", "-fdx", "-xdf", "-d"]], decision = "forbidden", justification = "Remove only explicitly approved paths.")
+prefix_rule(pattern = ["rtk", "git", "push", ["--force", "--force-with-lease", "-f"]], decision = "forbidden", justification = "Use a normal push.")
+prefix_rule(pattern = ["rtk", "git", "push", "origin", ["--force", "--force-with-lease", "-f", "main", "HEAD:main"]], decision = "forbidden", justification = "Use a reviewed PR.")

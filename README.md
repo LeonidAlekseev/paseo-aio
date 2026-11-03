@@ -1,5 +1,10 @@
 # Paseo AIO
 
+**Codex:** a native Codex installer, twelve Codex profiles, skills and hooks are
+available alongside the original Claude setup. See [Codex setup](README.codex.md)
+or [инструкцию на русском](README.codex.ru.md). The instructions below describe
+the original Claude version; do not run `install.sh` for a Codex installation.
+
 **🇬🇧 English** | [🇷🇺 Русский](README.ru.md)
 
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-2.1.316-d97757)](https://claude.com/claude-code)
