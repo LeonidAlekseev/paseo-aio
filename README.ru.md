@@ -1,5 +1,9 @@
 # Paseo AIO
 
+**Версия для Codex:** отдельный установщик, 12 профилей, навыки и нативные хуки.
+См. [установку под Codex](README.codex.ru.md). Ниже описан исходный вариант для
+Claude; для Codex нужен `install-codex.sh`, а не `install.sh`.
+
 [🇬🇧 English](README.md) | **🇷🇺 Русский**
 
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-2.1.316-d97757)](https://claude.com/claude-code)
