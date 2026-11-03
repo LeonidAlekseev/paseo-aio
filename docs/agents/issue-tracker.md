@@ -2,7 +2,7 @@
 
 Active tracker: local
 Tracker root: .scratch/
-Reason: the user selected local tasks for the orchestration trial.
+Reason: this repository uses local Markdown for task tracking.
 
 Follow the shared [tracker policy](../../codex/skills/codex-orchestrate/references/issue-tracker.md)
 for file layout, status transitions, dependencies and worktree handoff. Use the

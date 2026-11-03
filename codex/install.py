@@ -270,9 +270,18 @@ def apply_plan(plan, backup_root):
                          'mode': path.stat().st_mode & 0o777 if path.exists() else 0o600})
     (backup / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     written = []
+    created_dirs = []
     try:
         for entry in manifest:
             path = Path(entry['path'])
+            missing = []
+            parent = path.parent
+            while not parent.exists():
+                missing.append(parent)
+                parent = parent.parent
+            for directory in reversed(missing):
+                directory.mkdir()
+                created_dirs.append(directory)
             atomic_write(path, changes[path], entry['mode'])
             written.append(entry)
     except BaseException:
@@ -282,6 +291,11 @@ def apply_plan(plan, backup_root):
                 atomic_write(path, Path(entry['backup']).read_bytes(), entry['mode'])
             else:
                 path.unlink(missing_ok=True)
+        for directory in reversed(created_dirs):
+            try:
+                directory.rmdir()
+            except OSError:
+                pass  # Preserve directories that gained content during the operation.
         raise
     print(f'Applied {len(changes)} files. Backup: {backup}')
     print('Reload Paseo with paseo reload. Review new hooks in Codex /hooks, then start a new session.')

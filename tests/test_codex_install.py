@@ -241,6 +241,31 @@ class InstallTests(unittest.TestCase):
         self.assertEqual(first.read_text(), 'original')
         self.assertFalse(second.exists())
 
+    def test_failed_builtin_install_can_retry(self):
+        existing = self.skills / 'user-skill'
+        existing.mkdir(parents=True)
+        content = existing / 'notes'
+        content.write_text('keep')
+        empty = self.skills / 'empty-user-dir'
+        empty.mkdir()
+        target = self.skills / 'paseo' / 'LICENSE'
+        actual = installer.atomic_write
+
+        def fail_license(path, data, mode):
+            if path == target:
+                raise OSError('simulated disk error')
+            actual(path, data, mode)
+
+        with patch.object(installer, 'atomic_write', side_effect=fail_license):
+            with self.assertRaises(OSError):
+                self.apply(self.plan())
+        self.assertFalse(target.parent.exists())
+        self.assertTrue(empty.is_dir())
+        self.assertEqual(content.read_text(), 'keep')
+        self.apply(self.plan())
+        self.assertTrue((target.parent / 'SKILL.md').is_file())
+        self.assertTrue(target.is_file())
+
     def test_malformed_markers_fail_before_changes(self):
         (self.codex / 'AGENTS.md').write_text(installer.START)
         before = self.config.read_bytes()
