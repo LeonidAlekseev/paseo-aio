@@ -91,6 +91,12 @@ for d in "$HERE"/paseo/skills/*/; do
   [ -d "$CLAUDE_DIR/skills/$(basename "$d")" ] || cp -r "$d" "$CLAUDE_DIR/skills/"
 done
 
+# Plugin settings: copy only files that do not exist yet, so local tweaks survive a re-run.
+for f in "$HERE"/paseo/plugin-settings/*/*.json; do
+  dst="$PASEO_HOME/plugin-settings/$(basename "$(dirname "$f")")/$(basename "$f")"
+  [ -e "$dst" ] || { mkdir -p "$(dirname "$dst")"; cp "$f" "$dst"; }
+done
+
 if [ -f "$PASEO_HOME/config.json" ]; then
   say "Paseo settings and agent profiles"
   cp "$PASEO_HOME/config.json" "$PASEO_HOME/config.json.bak-$STAMP"

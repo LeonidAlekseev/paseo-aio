@@ -109,7 +109,7 @@ SKIP_INSTALL=1 ./install.sh
 5. Добавляет `.codegraph/` в глобальный gitignore.
 6. Копирует встроенные скиллы Paseo, но только недостающие: свои скиллы Paseo обновляет сам.
 7. Сливает настройки и профили Paseo в `~/.paseo/config.json` (с бэкапом) и ставит плагины Paseo из
-   `paseo/plugins.txt`.
+   `paseo/plugins.txt`. Настройки плагинов из `paseo/plugin-settings/` копирует, только если своих ещё нет.
 
 ### Какие настройки Paseo применяются
 
@@ -320,6 +320,7 @@ claude/skills/pocock-paseo/          адаптер: роли Pocock → аге�
 paseo/agent-profiles.json            профили исполнителей
 paseo/settings.json                  переносимые настройки Paseo (без адресов и ключей)
 paseo/plugins.txt                    плагины Paseo (id в реестре plugins.paseo.sh)
+paseo/plugin-settings/               настройки плагинов (better-paseo, usage-auto-resume), копируются, если их нет
 paseo/skills/                        снимок встроенных скиллов Paseo
 ```
 
@@ -332,7 +333,8 @@ paseo/skills/                        снимок встроенных скил�
 - Плагины Paseo: [better-paseo](https://github.com/RoundRedDot/better-paseo),
   [prompt-manager](https://github.com/yannelli/paseo-prompt-manager),
   [resources](https://github.com/ZedObaia/paseo-plugins),
-  [shell-yeah](https://plugins.paseo.sh), [usage-auto-resume](https://github.com/babo-jeonguk/paseo-usage-auto-resume).
+  [shell-yeah](https://plugins.paseo.sh), [usage-auto-resume](https://github.com/babo-jeonguk/paseo-usage-auto-resume),
+  [design-canvas](https://plugins.paseo.sh), [skills](https://plugins.paseo.sh).
 
 ## Лицензия
 

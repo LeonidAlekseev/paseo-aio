@@ -111,7 +111,7 @@ What the installer does:
 5. Adds `.codegraph/` to the global gitignore.
 6. Copies Paseo's built-in skills, but only the ones that are missing, because Paseo updates its own.
 7. Merges the Paseo settings and profiles into `~/.paseo/config.json` (with a backup) and installs the Paseo plugins
-   from `paseo/plugins.txt`.
+   from `paseo/plugins.txt`. Plugin settings from `paseo/plugin-settings/` are copied only where none exist yet.
 
 ### Paseo settings applied
 
@@ -320,6 +320,7 @@ claude/skills/pocock-paseo/          adapter: Pocock roles → Paseo agents by p
 paseo/agent-profiles.json            executor profiles
 paseo/settings.json                  portable Paseo settings (no addresses or keys)
 paseo/plugins.txt                    Paseo plugins (plugins.paseo.sh registry ids)
+paseo/plugin-settings/               plugin settings (better-paseo, usage-auto-resume), copied if missing
 paseo/skills/                        snapshot of Paseo's built-in skills
 ```
 
@@ -332,7 +333,8 @@ paseo/skills/                        snapshot of Paseo's built-in skills
 - Paseo plugins: [better-paseo](https://github.com/RoundRedDot/better-paseo),
   [prompt-manager](https://github.com/yannelli/paseo-prompt-manager),
   [resources](https://github.com/ZedObaia/paseo-plugins),
-  [shell-yeah](https://plugins.paseo.sh), [usage-auto-resume](https://github.com/babo-jeonguk/paseo-usage-auto-resume).
+  [shell-yeah](https://plugins.paseo.sh), [usage-auto-resume](https://github.com/babo-jeonguk/paseo-usage-auto-resume),
+  [design-canvas](https://plugins.paseo.sh), [skills](https://plugins.paseo.sh).
 
 ## License
 
