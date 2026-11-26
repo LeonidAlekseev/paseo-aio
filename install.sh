@@ -102,7 +102,7 @@ def merge(dst, src):
         if isinstance(v, dict) and isinstance(dst.get(k), dict): merge(dst[k], v)
         else: dst[k] = v
 merge(c, json.load(open(sys.argv[2])))
-new = json.load(open(sys.argv[3])); ids = {x['id'] for x in new}
+new = json.load(open(sys.argv[3])); ids = {x['id'] for x in new} | {'advisor'}  # 'advisor' renamed to 'advisor-chatgpt'
 d = c.setdefault('daemon', {})
 d['agentProfiles'] = [x for x in d.get('agentProfiles', []) if x.get('id') not in ids] + new
 json.dump(c, open(p, 'w'), indent=2, ensure_ascii=False)

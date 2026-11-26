@@ -3,7 +3,7 @@
 **🇬🇧 English** | [🇷🇺 Русский](README.ru.md)
 
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-2.1.316-d97757)](https://claude.com/claude-code)
-[![Paseo](https://img.shields.io/badge/Paseo-0.14.0-black)](https://paseo.sh)
+[![Paseo](https://img.shields.io/badge/Paseo-0.17.4-black)](https://paseo.sh)
 [![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)](#tested-versions)
 [![Shell](https://img.shields.io/badge/install-bash-4EAA25?logo=gnubash&logoColor=white)](install.sh)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
@@ -54,7 +54,7 @@ same job.
 - 🧭 **Pocock process**: `grill-me` → `to-spec` → `to-tickets` → `implement-spec`, with `wayfinder` for huge goals.
 - 🚦 **Approval gate**: executors only take tickets labelled `ready-for-agent`, and that label is set only after your
   explicit "yes".
-- 🤖 **Model routing**: 12 Paseo profiles map each task type to its model and thinking level.
+- 🤖 **Model routing**: 13 Paseo profiles map each task type to its model and thinking level.
 - 🌳 **Worktree per ticket**: an integration branch per spec, tickets merged into it, then one PR into `dev`.
 - 🧠 **CodeGraph in every worktree**: a SessionStart hook copies the index from the main checkout and syncs it.
 - ✂️ **Ponytail**: minimal code, plus `/ponytail-review` before every hand-off.
@@ -187,9 +187,10 @@ Slash commands (`/to-spec`, `/grill-me`, `/wayfinder` and so on) run exactly as 
 | `merger`              | Haiku 5.5                      |  medium  | Merging tickets into the integration branch                     |
 | `reviewer`            | Sonnet 5.5                     |  medium  | Standards and Spec axes of `code-review`                        |
 | `code-research`       | Sonnet 5.5                     |  medium  | Researching the codebase                                        |
-| `web-research`        | Gemini 3.8 Flash (Antigravity) |   high   | Research that needs the internet                                |
+| `web-research`        | Gemini 4 Hydrogen (Antigravity) |   high   | Research that needs the internet                                |
 | `images`              | GPT-6-Luna (Codex)             |  medium  | Images, PNG with transparent background                         |
-| `advisor`             | GPT-6-Luna (Codex)             |  medium  | Second opinion on architecture (a different model family)       |
+| `advisor-chatgpt`     | GPT-6-Luna (Codex)             |  medium  | Second opinion on architecture (a different model family)       |
+| `advisor-gemini`      | Gemini 4 Hydrogen (Antigravity)|  medium  | Second opinion on architecture, Gemini family, plan mode        |
 | `arbiter`             | Fable 5.1                      |  medium  | Disputed review remarks and unresolved disputes                 |
 
 Only Claude models write code. At most 3 code-writing agents run at the same time.
@@ -241,7 +242,7 @@ Tested together on 2026-11-01, on Linux:
 | Component                   | Version                                                                                                         |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Claude Code                 | 2.1.316                                                                                                         |
-| Paseo                       | 0.14.0                                                                                                          |
+| Paseo                       | 0.17.4                                                                                                          |
 | Node                        | v26.13.0                                                                                                        |
 | RTK                         | 1.1.0                                                                                                           |
 | CodeGraph                   | 1.6.2                                                                                                           |
