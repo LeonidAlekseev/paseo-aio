@@ -23,6 +23,7 @@
       "pi": {
         "enabled": false
       }
-    }
+    },
+    "resumeOnStartup": true
   }
 }

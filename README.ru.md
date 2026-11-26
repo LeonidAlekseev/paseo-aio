@@ -3,7 +3,7 @@
 [🇬🇧 English](README.md) | **🇷🇺 Русский**
 
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-2.1.316-d97757)](https://claude.com/claude-code)
-[![Paseo](https://img.shields.io/badge/Paseo-0.14.0-black)](https://paseo.sh)
+[![Paseo](https://img.shields.io/badge/Paseo-0.17.4-black)](https://paseo.sh)
 [![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)](#проверенные-версии)
 [![Shell](https://img.shields.io/badge/install-bash-4EAA25?logo=gnubash&logoColor=white)](install.sh)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
@@ -53,7 +53,7 @@ Ponytail, навигацией по коду — CodeGraph, сжатием вы�
 - 🧭 **Процесс Pocock**: `grill-me` → `to-spec` → `to-tickets` → `implement-spec`, для огромных целей — `wayfinder`.
 - 🚦 **Гейт согласования**: исполнители берут только тикеты с меткой `ready-for-agent`, а её ставят только после вашего
   явного «да».
-- 🤖 **Маршрутизация моделей**: 12 профилей Paseo, у каждого типа задач своя модель и уровень мышления.
+- 🤖 **Маршрутизация моделей**: 14 профилей Paseo, у каждого типа задач своя модель и уровень мышления.
 - 🌳 **Worktree на тикет**: integration-ветка на спеку, тикеты вливаются в неё, затем один PR в `dev`.
 - 🧠 **CodeGraph в каждом worktree**: хук SessionStart копирует индекс из основного checkout и досинхронизирует его.
 - ✂️ **Ponytail**: минимум кода и `/ponytail-review` перед сдачей работы.
@@ -109,7 +109,7 @@ SKIP_INSTALL=1 ./install.sh
 5. Добавляет `.codegraph/` в глобальный gitignore.
 6. Копирует встроенные скиллы Paseo, но только недостающие: свои скиллы Paseo обновляет сам.
 7. Сливает настройки и профили Paseo в `~/.paseo/config.json` (с бэкапом) и ставит плагины Paseo из
-   `paseo/plugins.txt`.
+   `paseo/plugins.txt`. Настройки плагинов из `paseo/plugin-settings/` копирует, только если своих ещё нет.
 
 ### Какие настройки Paseo применяются
 
@@ -186,10 +186,12 @@ SKIP_INSTALL=1 ./install.sh
 | `merger`              | Haiku 5.5                      |  medium  | Вливание тикетов в integration-ветку                        |
 | `reviewer`            | Sonnet 5.5                     |  medium  | Оси Standards и Spec в `code-review`                        |
 | `code-research`       | Sonnet 5.5                     |  medium  | Исследование кода                                           |
-| `web-research`        | Gemini 3.8 Flash (Antigravity) |   high   | Исследование в интернете                                    |
+| `web-research`        | Gemini 4 Hydrogen (Antigravity) |   high   | Исследование в интернете                                    |
 | `images`              | GPT-6-Luna (Codex)             |  medium  | Картинки, PNG на прозрачном фоне                            |
-| `advisor`             | GPT-6-Luna (Codex)             |  medium  | Второе мнение по архитектуре (другое семейство моделей)     |
-| `arbiter`             | Fable 5.1                      |  medium  | Спорные замечания и неразрешённые споры                     |
+| `advisor-chatgpt`     | GPT-6-Luna (Codex)             |  medium  | Второе мнение по архитектуре (другое семейство моделей)     |
+| `advisor-gemini`      | Gemini 4 Hydrogen (Antigravity)|  medium  | Второе мнение по архитектуре, семейство Gemini, режим plan  |
+| `advisor-fable`       | Fable 5.2                      |  medium  | Второе мнение по архитектуре, самая сильная Claude, режим plan |
+| `arbiter`             | Fable 5.2                      |  medium  | Спорные замечания и неразрешённые споры                     |
 
 Код пишут только модели Claude. Одновременно работают не больше 3 агентов, пишущих код.
 
@@ -241,7 +243,7 @@ SKIP_INSTALL=1 ./install.sh
 | Компонент                  | Версия                                                                                                          |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Claude Code                | 2.1.316                                                                                                         |
-| Paseo                      | 0.14.0                                                                                                          |
+| Paseo                      | 0.17.4                                                                                                          |
 | Node                       | v26.13.0                                                                                                        |
 | RTK                        | 1.1.0                                                                                                           |
 | CodeGraph                  | 1.6.2                                                                                                           |
@@ -318,6 +320,7 @@ claude/skills/pocock-paseo/          адаптер: роли Pocock → аге�
 paseo/agent-profiles.json            профили исполнителей
 paseo/settings.json                  переносимые настройки Paseo (без адресов и ключей)
 paseo/plugins.txt                    плагины Paseo (id в реестре plugins.paseo.sh)
+paseo/plugin-settings/               настройки плагинов (better-paseo, usage-auto-resume), копируются, если их нет
 paseo/skills/                        снимок встроенных скиллов Paseo
 ```
 
@@ -330,7 +333,8 @@ paseo/skills/                        снимок встроенных скил�
 - Плагины Paseo: [better-paseo](https://github.com/RoundRedDot/better-paseo),
   [prompt-manager](https://github.com/yannelli/paseo-prompt-manager),
   [resources](https://github.com/ZedObaia/paseo-plugins),
-  [shell-yeah](https://plugins.paseo.sh), [usage-auto-resume](https://github.com/babo-jeonguk/paseo-usage-auto-resume).
+  [shell-yeah](https://plugins.paseo.sh), [usage-auto-resume](https://github.com/babo-jeonguk/paseo-usage-auto-resume),
+  [design-canvas](https://plugins.paseo.sh), [skills](https://plugins.paseo.sh).
 
 ## Лицензия
 

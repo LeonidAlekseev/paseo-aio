@@ -91,6 +91,12 @@ for d in "$HERE"/paseo/skills/*/; do
   [ -d "$CLAUDE_DIR/skills/$(basename "$d")" ] || cp -r "$d" "$CLAUDE_DIR/skills/"
 done
 
+# Plugin settings: copy only files that do not exist yet, so local tweaks survive a re-run.
+for f in "$HERE"/paseo/plugin-settings/*/*.json; do
+  dst="$PASEO_HOME/plugin-settings/$(basename "$(dirname "$f")")/$(basename "$f")"
+  [ -e "$dst" ] || { mkdir -p "$(dirname "$dst")"; cp "$f" "$dst"; }
+done
+
 if [ -f "$PASEO_HOME/config.json" ]; then
   say "Paseo settings and agent profiles"
   cp "$PASEO_HOME/config.json" "$PASEO_HOME/config.json.bak-$STAMP"
@@ -102,7 +108,7 @@ def merge(dst, src):
         if isinstance(v, dict) and isinstance(dst.get(k), dict): merge(dst[k], v)
         else: dst[k] = v
 merge(c, json.load(open(sys.argv[2])))
-new = json.load(open(sys.argv[3])); ids = {x['id'] for x in new}
+new = json.load(open(sys.argv[3])); ids = {x['id'] for x in new} | {'advisor'}  # 'advisor' renamed to 'advisor-chatgpt'
 d = c.setdefault('daemon', {})
 d['agentProfiles'] = [x for x in d.get('agentProfiles', []) if x.get('id') not in ids] + new
 json.dump(c, open(p, 'w'), indent=2, ensure_ascii=False)

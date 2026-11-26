@@ -3,3 +3,5 @@ yannelli/prompt-manager
 zedobaia/resources
 stevecastaneda/shell-yeah
 babo-jeonguk/usage-auto-resume
+961853266hyt/design-canvas
+gpambrozio/skills
