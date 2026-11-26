@@ -131,6 +131,17 @@
     "notes": "Второе мнение по архитектуре, когда нужно (другое семейство моделей). Только чтение, код не менять."
   },
   {
+    "id": "advisor-fable",
+    "name": "Advisor · Fable",
+    "icon": "brain",
+    "color": "amber",
+    "provider": "claude",
+    "model": "claude-fable-5-2",
+    "modeId": "plan",
+    "thinkingOptionId": "medium",
+    "notes": "Второе мнение по архитектуре, когда нужно (самая сильная модель Claude). Только чтение, код не менять."
+  },
+  {
     "id": "arbiter",
     "name": "Arbiter",
     "icon": "brain",

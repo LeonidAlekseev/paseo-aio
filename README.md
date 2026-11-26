@@ -54,7 +54,7 @@ same job.
 - 🧭 **Pocock process**: `grill-me` → `to-spec` → `to-tickets` → `implement-spec`, with `wayfinder` for huge goals.
 - 🚦 **Approval gate**: executors only take tickets labelled `ready-for-agent`, and that label is set only after your
   explicit "yes".
-- 🤖 **Model routing**: 13 Paseo profiles map each task type to its model and thinking level.
+- 🤖 **Model routing**: 14 Paseo profiles map each task type to its model and thinking level.
 - 🌳 **Worktree per ticket**: an integration branch per spec, tickets merged into it, then one PR into `dev`.
 - 🧠 **CodeGraph in every worktree**: a SessionStart hook copies the index from the main checkout and syncs it.
 - ✂️ **Ponytail**: minimal code, plus `/ponytail-review` before every hand-off.
@@ -191,6 +191,7 @@ Slash commands (`/to-spec`, `/grill-me`, `/wayfinder` and so on) run exactly as 
 | `images`              | GPT-6-Luna (Codex)             |  medium  | Images, PNG with transparent background                         |
 | `advisor-chatgpt`     | GPT-6-Luna (Codex)             |  medium  | Second opinion on architecture (a different model family)       |
 | `advisor-gemini`      | Gemini 4 Hydrogen (Antigravity)|  medium  | Second opinion on architecture, Gemini family, plan mode        |
+| `advisor-fable`       | Fable 5.2                      |  medium  | Second opinion on architecture, strongest Claude model, plan mode |
 | `arbiter`             | Fable 5.1                      |  medium  | Disputed review remarks and unresolved disputes                 |
 
 Only Claude models write code. At most 3 code-writing agents run at the same time.

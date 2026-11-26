@@ -33,7 +33,7 @@ Call `list_profiles` and use the profile with the matching `id`.
 | Exploration subagent / "how does X work" about **this codebase** | `code-research` |
 | Research that needs **the internet**: docs, APIs, data collection, browsing | `web-research` |
 | Standards and Spec reviewers (`code-review` step 4) | `reviewer` (two agents in parallel) |
-| Second opinion on architecture (only when needed) | `advisor-chatgpt` (GPT) or `advisor-gemini` (Gemini) |
+| Second opinion on architecture (only when needed) | `advisor-chatgpt` (GPT), `advisor-gemini` (Gemini) or `advisor-fable` (Fable) |
 | Disputed review remarks, hard or unresolved disputes | `arbiter` |
 
 Turn the profile into a `create_agent` call. Copy the fields one by one and never invent missing values:
