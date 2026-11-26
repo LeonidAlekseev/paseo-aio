@@ -191,7 +191,7 @@ SKIP_INSTALL=1 ./install.sh
 | `advisor-chatgpt`     | GPT-6-Luna (Codex)             |  medium  | Второе мнение по архитектуре (другое семейство моделей)     |
 | `advisor-gemini`      | Gemini 4 Hydrogen (Antigravity)|  medium  | Второе мнение по архитектуре, семейство Gemini, режим plan  |
 | `advisor-fable`       | Fable 5.2                      |  medium  | Второе мнение по архитектуре, самая сильная Claude, режим plan |
-| `arbiter`             | Fable 5.1                      |  medium  | Спорные замечания и неразрешённые споры                     |
+| `arbiter`             | Fable 5.2                      |  medium  | Спорные замечания и неразрешённые споры                     |
 
 Код пишут только модели Claude. Одновременно работают не больше 3 агентов, пишущих код.
 

@@ -147,7 +147,7 @@
     "icon": "brain",
     "color": "pink",
     "provider": "claude",
-    "model": "claude-fable-5-1",
+    "model": "claude-fable-5-2",
     "modeId": "plan",
     "thinkingOptionId": "medium",
     "notes": "Спорные замечания ревью, тяжёлые и неразрешённые споры. Только чтение. Ответ: решение, обоснование, риски."

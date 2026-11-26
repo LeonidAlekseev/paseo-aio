@@ -192,7 +192,7 @@ Slash commands (`/to-spec`, `/grill-me`, `/wayfinder` and so on) run exactly as 
 | `advisor-chatgpt`     | GPT-6-Luna (Codex)             |  medium  | Second opinion on architecture (a different model family)       |
 | `advisor-gemini`      | Gemini 4 Hydrogen (Antigravity)|  medium  | Second opinion on architecture, Gemini family, plan mode        |
 | `advisor-fable`       | Fable 5.2                      |  medium  | Second opinion on architecture, strongest Claude model, plan mode |
-| `arbiter`             | Fable 5.1                      |  medium  | Disputed review remarks and unresolved disputes                 |
+| `arbiter`             | Fable 5.2                      |  medium  | Disputed review remarks and unresolved disputes                 |
 
 Only Claude models write code. At most 3 code-writing agents run at the same time.
 
